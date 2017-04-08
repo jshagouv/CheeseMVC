@@ -11,12 +11,13 @@
         <th>Name</th>
         <th>Description</th>
     </tr>
-
-    @foreach (KeyValuePair<string, string> cheese in ViewBag.cheeses)
+    <!--Even though we know cheese is of Cheese type, the Razor template engine
+        does not, and so to keep it happy we have to use var-->
+    @foreach (var cheese in ViewBag.cheeses)
     {
         <tr>
-            <td>@cheese.Key</td>
-            <td>@cheese.Value</td>
+            <td>@cheese.Name</td>
+            <td>@cheese.Description</td>
         </tr>
     }
 </table>
